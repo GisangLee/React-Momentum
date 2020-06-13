@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Greetings from "../greetings/greetings";
+import ToDo from "../todo/ToDo";
 
 class Time extends React.Component {
   state = {
@@ -29,13 +30,13 @@ class Time extends React.Component {
     return (
       <TimeConatiner>
         <TimeCol>
-          <TimeCol__time>
+          <TimeColTime>
             {hour < 10 ? `0${hour}` : `${hour}`} :{" "}
             {min < 10 ? `0${min}` : `${min}`}
-          </TimeCol__time>
-          <TimeCol__greetings>
+          </TimeColTime>
+          <TimeColGreetings>
             <Greetings />
-          </TimeCol__greetings>
+          </TimeColGreetings>
         </TimeCol>
       </TimeConatiner>
     );
@@ -44,7 +45,7 @@ class Time extends React.Component {
 
 const TimeConatiner = styled.div`
   position: absolute;
-  top: 38%;
+  top: 28%;
   left: 48%;
   margin-left: -5rem;
 `;
@@ -58,11 +59,11 @@ const TimeCol = styled.div`
   font-family: "Jua", sans-serif;
 `;
 
-const TimeCol__greetings = styled.span`
+const TimeColGreetings = styled.span`
   font-size: 2rem;
 `;
 
-const TimeCol__time = styled.span`
+const TimeColTime = styled.span`
   font-size: 3rem;
   margin-bottom: 20px;
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ToDo from "../todo/ToDo";
 
 const CURRENT_USER = "currentuser";
 
@@ -7,6 +8,7 @@ class Greetings extends React.Component {
   state = {
     username: null,
     isNamed: true,
+    isGreeted: false,
   };
 
   saveUser = (user) => {
@@ -18,9 +20,11 @@ class Greetings extends React.Component {
   };
 
   onSubmit = (e) => {
+    const { isGreeted } = this.state;
     e.preventDefault();
     const user = document.querySelector(NameInput);
     this.saveUser(user.value);
+    this.setState({ isGreeted: true });
     e.target.reset();
     this.setState({ isNamed: false });
   };
@@ -39,11 +43,15 @@ class Greetings extends React.Component {
 
   paintName = () => {
     const username = localStorage.getItem(CURRENT_USER);
-    return <NamePaint>Welcome {username}</NamePaint>;
+    return (
+      <>
+        <NamePaint>Welcome {username}</NamePaint>
+        <ToDo />
+      </>
+    );
   };
 
   render() {
-    const { isNamed } = this.state;
     const user = localStorage.getItem(CURRENT_USER);
     console.log(this.state);
     return user === null ? this.askName() : this.paintName();
@@ -60,6 +68,7 @@ const NameInput = styled.input`
 
 const NamePaint = styled.h3`
   font-size: 50px;
+  text-align: center;
 `;
 
 export default Greetings;
