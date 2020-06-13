@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function PaintWeather({ temp, name }) {
-  return <span className="header__temp">{temp}</span>;
+  return (
+    <>
+      <span className="header__temp">{temp}</span>
+      <span>{name}</span>
+    </>
+  );
 }
 
 PaintWeather.propTypes = {
