@@ -1,6 +1,6 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
-import Weather from "./weather";
+import Weather from "./weather/weather";
 import "../css/header.css";
 
 function Header() {
