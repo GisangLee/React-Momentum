@@ -1,5 +1,6 @@
 import React from "react";
-import FontAwesome from "react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThermometerHalf } from "@fortawesome/free-solid-svg-icons";
 import Weather from "./weather/weather";
 import "../css/header.css";
 
@@ -13,10 +14,10 @@ function Header() {
       </div>
       <div className="header__col">
         <div>
-          <FontAwesome
-            name="thermometer-full"
+          <FontAwesomeIcon
+            icon={faThermometerHalf}
             className="header__icon"
-          ></FontAwesome>
+          ></FontAwesomeIcon>
         </div>
         <div>
           <Weather />
