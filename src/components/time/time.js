@@ -1,17 +1,41 @@
 import React from "react";
 import styled from "styled-components";
+import Greetings from "../greetings/greetings";
 
 class Time extends React.Component {
   state = {
-    time: null,
+    hour: null,
+    min: null,
   };
 
+  saveTime = (hour, min) => {
+    this.setState({ hour, min });
+  };
+
+  getTime = () => {
+    const date = new Date();
+    const hour = date.getHours();
+    const min = date.getMinutes();
+    this.saveTime(hour, min);
+  };
+
+  componentDidMount() {
+    this.getTime();
+  }
+
   render() {
+    const { hour } = this.state;
+    const { min } = this.state;
     return (
       <TimeConatiner>
         <TimeCol>
-          <TimeCol__time> Hi</TimeCol__time>
-          <TimeCol__greetings>Welcome 기상</TimeCol__greetings>
+          <TimeCol__time>
+            {hour < 10 ? `0${hour}` : `${hour}`} :{" "}
+            {min < 10 ? `0${min}` : `${min}`}
+          </TimeCol__time>
+          <TimeCol__greetings>
+            <Greetings />
+          </TimeCol__greetings>
         </TimeCol>
       </TimeConatiner>
     );
@@ -20,9 +44,9 @@ class Time extends React.Component {
 
 const TimeConatiner = styled.div`
   position: absolute;
-  top: 40%;
-  left: 50%;
-  margin-left: -6rem;
+  top: 38%;
+  left: 48%;
+  margin-left: -5rem;
 `;
 
 const TimeCol = styled.div`
@@ -39,7 +63,8 @@ const TimeCol__greetings = styled.span`
 `;
 
 const TimeCol__time = styled.span`
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-bottom: 20px;
 `;
 
 export default Time;
