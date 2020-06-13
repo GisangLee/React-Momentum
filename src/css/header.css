@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__col {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__col .header__temp {
+  font-size: 2rem;
+}
+
+.header__col .header__icon {
+  margin-right: 10px;
+  font-size: 2rem;
+}

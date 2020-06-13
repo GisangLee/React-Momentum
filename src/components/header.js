@@ -1,5 +1,7 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
+import Weather from "./weather";
+import "../css/header.css";
 
 function Header() {
   return (
@@ -11,9 +13,13 @@ function Header() {
       </div>
       <div className="header__col">
         <div>
-          <FontAwesome>
-            <i class="fas fa-cloud"></i>
-          </FontAwesome>
+          <FontAwesome
+            name="thermometer-full"
+            className="header__icon"
+          ></FontAwesome>
+        </div>
+        <div>
+          <Weather />
         </div>
       </div>
     </div>
